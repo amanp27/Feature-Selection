@@ -53,4 +53,8 @@ sel.fit(X_train)
 # Apply the transformation to both training and test datasets
 X_train = sel.transform(X_train)
 X_test = sel.transform(X_test)
+```
+### When to use:
 
+* Ideal for removing constant or nearly constant features.
+* Use it when you have many features with low variance (e.g., mostly zero or constant values).
