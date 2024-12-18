@@ -1,6 +1,23 @@
 # 🧠 Filter Method: Feature Selection in Machine Learning
 Feature selection is a key process in building machine learning models. The Filter Method is one of the most widely used techniques for selecting important features based on their statistical properties. It works independently of the learning algorithm and is often used as a preprocessing step.
 
+## 🌟 Project Overview
+
+The Human Activity Recognition dataset is a challenging dataset that involves classifying different physical activities based on smartphone sensor data. The primary goal was to enhance model interpretability and efficiency without compromising accuracy.
+
+### Dataset Description
+
+The dataset contains 561 features, derived from accelerometer and gyroscope signals, capturing various metrics of motion and orientation. The target variable represents activities such as walking, sitting, and standing.
+
+| **Step**                  | **Features Retained** | **Accuracy** |
+|---------------------------|------------------------|--------------|
+| Initial Dataset           | 561                   | 98%          |
+| After Feature Selection   | 100                   | 97%          |
+
+* The reduction in features resulted in only a 1% drop in accuracy, demonstrating the robustness of the selected features.
+
+* The streamlined feature set improved model efficiency and reduced computational complexity without sacrificing significant predictive power.
+
 In this README, we'll cover:
 
 * What is the Filter Method?
@@ -58,3 +75,22 @@ X_test = sel.transform(X_test)
 
 * Ideal for removing constant or nearly constant features.
 * Use it when you have many features with low variance (e.g., mostly zero or constant values).
+
+### 2. Correlation 🔗
+* What it is: Measures the relationship between features, and removes features that are highly correlated with each other.
+* How it works: Features that are strongly correlated can carry redundant information. Removing one of them can reduce multicollinearity and improve model performance.
+
+### 3. ANOVA (Analysis of Variance) 📊
+* What it is: A statistical test used to compare the means of different groups and determine if there is a significant difference between them.
+* How it works: Features that are significantly different between groups are considered important.
+
+```python
+from sklearn.feature_selection import SelectKBest
+from sklearn.feature_selection import f_classif
+selector = SelectKBest(f_classif, k=10)
+X_train = selector.fit_transform(X_train, y_train
+```
+## 📝 Conclusion
+* The Filter Method is an effective and simple way to perform feature selection and can be applied before training your machine learning models. By focusing on statistical properties like variance, correlation, and mutual information, you can ensure that only the most important features are passed on to the model.
+
+* By using the various techniques described above, you can tailor your feature selection strategy to the type of data and the problem at hand.
